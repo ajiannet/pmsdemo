@@ -1,0 +1,144 @@
+﻿html, body, div, span, h1, h2, h3, h4, h5, h6, p, pre, a {
+    border: 0 none;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+body {
+    font-family: "微软雅黑","苹方","宋体";
+    font-size: 0.2rem;
+    background-color: #f7f7f7;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.project-type {
+    height: 101px;
+}
+
+.project-type-td {
+    padding: 0px;
+    cursor: pointer;
+}
+
+    .project-type-td.active .project-type-item {
+        border: 1px solid #02ADEE;
+    }
+
+.project-type-item {
+    position: relative;
+    width: 99%; /*calc(99%/4);*/
+    text-align: center;
+    background: #fff;
+    float: left;
+    border-right: 0;
+    /*border-right: 1px #ddd solid;*/
+}
+
+.project-type-item-last {
+    border-right-width: 1px !important;
+}
+
+.project-type-td {
+    border-right: 1px #ddd solid;
+}
+
+.project-type-item-last {
+    border-right: 0px;
+}
+
+.project-type-item > h5 {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.project-type-item > p {
+    width: 100%;
+    font-size: 36px;
+    font-weight: normal;
+    margin-top: 0px;
+}
+
+.project-type-item-status {
+    padding-bottom: 5px;
+}
+
+.project-type-item-status-item {
+    border-radius: 25px;
+    color: #fff;
+    display: inline-block;
+    padding: 0px 5px 0px 5px;
+    font-size: 12px;
+}
+
+.project-type-item-status-item-red {
+    background-color: #fa3636;
+    border: 1px solid #fa3636;
+}
+
+.project-type-item-status-item-yellow {
+    background-color: #e49d04;
+    border: 1px solid #e49d04;
+}
+
+.project-type-item-status-item-green {
+    background-color: #37e471;
+    border: 1px solid #37e471;
+}
+
+.project-grid table {
+    width: 100%;
+    font-size: 12px;
+}
+
+    .project-grid table th {
+        padding: 8px 5px 5px 10px;
+        text-align: left;
+        font-weight: normal;
+    }
+
+    .project-grid table td {
+        text-align: left;
+        padding: 5px 5px 5px 10px;
+        font-weight: normal;
+        border-bottom: 1px solid #CACACA;
+    }
+
+.project-grid .grid-title {
+    width: 45%;
+}
+
+.project-grid .grid-rate {
+    width: 6em;
+}
+
+.light-red {
+    display: inline-block;
+    width: 15px;
+    text-align: center;
+    border-radius: 25px;
+    color: #fff;
+    background-color: #D90606;
+}
+
+.rate-green {
+    display: inline-block;
+    width: 5em;
+    padding: 1px 0;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    background-color: #009B00;
+}
+
+.rate-red {
+    display: inline-block;
+    width: 5em;
+    padding: 1px 0;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    background-color: #D90606;
+}

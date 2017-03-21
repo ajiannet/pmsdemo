@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="zh" style="height:100%;">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>项目计划管理系统领导视图</title>
+    <link href="view.css" rel="stylesheet" />
+    <script src="jquery-2.0.3.min.js"></script>
+    <script src="jquery.tmpl.min.js"></script>
+    <script src="echarts.common.min.js"></script>
+</head>
+<body style="width:100%;height:100%;background-color:#fff;">
+    <div class="project-type">
+        <table style="width:100%; border-spacing:0; border-collapse:collapse;border-bottom: 1px #ddd solid;">
+            <tr></tr>
+        </table>
+    </div>
+    <div class="project-total" style="text-align:left; border-top:0px solid #DDDDDD;border-bottom:1px solid #DDDDDD;background: #fff; padding-top:10px; padding-bottom:5px; margin-top:10px;">
+    </div>
+    <div class="project-chars" style="height:calc(50% - 150px);background-color:#fff;">
+        <p style="padding-left:10px; margin-top:10px; font-size:14px; color:#222222; margin-bottom: 10px;">节点按时完成率趋势图</p>
+        <div id="e_charts" style="width:100%; height:calc(100% - 20px);"></div>
+    </div>
+    <div class="project-grid" style="height:calc(50% - 80px);border-top:1px solid #DDDDDD;background-color:#fff; padding-top: 10px; margin-top: 10px; padding-left: 10px; padding-right: 10px;">
+        <p style="padding-left:0px;font-size:14px; color:#222222;">项目节点延期率明细</p>
+        <table style="border-spacing:0; border-collapse:collapse;border-bottom:2px solid #DD3409;">
+            <tr>
+                <th class="grid-title" style="font-weight:bold;">项目名称</th>
+                <th><span class="light-red" style="font-weight:normal;">I</span></th>
+                <th><span class="light-red" style="font-weight:normal;">II</span></th>
+                <th><span class="light-red" style="font-weight:normal;">III</span></th>
+                <th class="grid-rate" style="font-weight:bold;">节点延期率</th>
+            </tr>
+        </table>
+        <div style="height:calc(100% - 50px); overflow-x:hidden;">
+            <table id="project-data" style="border-spacing:0; border-collapse:collapse;">
+            </table>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+
+    <script>
+        $(function () {
+            app.init();
+        });
+    </script>
+    <script id="project-type-tmpl" type="text/x-jquery-tmpl">
+        <td class="project-type-td ${$item.getActiveCss()}">
+            <div class="project-type-item" data-project-type="${id}">
+                <h5>${name}</h5>
+                <p>${total}</p>
+                <div class="project-type-item-status">
+                    <span class="project-type-item-status-item project-type-item-status-item-red">${red}</span>
+                    <span class="project-type-item-status-item project-type-item-status-item-yellow">${yellow}</span>
+                    <span class="project-type-item-status-item project-type-item-status-item-green">${green}</span>
+                </div>
+            </div>
+        </td>
+    </script>
+    <script id="project-total-tmpl" type="text/x-jquery-tmpl">
+        <p style="padding-left:10px;color:#222222;text-align:left;font-size:14px;">总投资规模<span style="color:#B2B2B2 !important; font-size:12px;">&nbsp;&nbsp;vs.&nbsp;&nbsp;总节点延期率</span></p>
+        <div style="height:calc(100% - 20px); text-align:center; font-size:30px; margin-top:8px; margin-bottom: 12px;">
+            <span style="display:inline-block;height:30px;line-height: 30px;vertical-align: middle; margin-top:0px; font-weight:bold;margin-right:10px;">￥${amount}</span>
+            <span style="display:inline-block;height:30px;line-height: 30px;vertical-align: middle; padding:3px 20px;background-color:#D90606;font-size:15px;color:#FBE4E4;">${percent}%</span>
+        </div>
+    </script>
+    <script id="project-grid-tmpl" type="text/x-jquery-tmpl">
+        <tr><td class="grid-title">${title}</td><td>${num1}</td><td>${num2}</td><td>${num3}</td><td class="grid-rate"><span class="rate-${$item.getPercentCss()}">${percent}%</span></td></tr>
+    </script>
+</body>
+</html>
